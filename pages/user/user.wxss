@@ -1,0 +1,86 @@
+
+/* 用户登录——头像、昵称 */
+.publicInformation{
+  background: var(--themeColor);
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 38rpx;
+  padding:40rpx 30rpx 60rpx;
+}
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+}
+.avatar image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+/* 编辑资料 */
+.editResume{
+  font-size: 28rpx;
+  padding: 20rpx 30rpx 20rpx 0;
+}
+.loginBtn{
+  background-color: var(--GreenColor);
+  color: white;
+  font-size: 32rpx;
+  transform:translateX(-50%);
+}
+
+/* 学会汇总样式 */
+.ScoreWrap{
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: white;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  margin-top: -20rpx;
+  padding: 20rpx 0;
+  color: var(--themeColor);
+  font-weight: bold;
+}
+.ScoreWrap>view>view:first-child{
+  font-size: 32rpx;
+}
+/* 志愿时长 */
+.voluteer{
+  text-align: center;
+  color: red;
+  border-radius: 20rpx;
+}
+.iconWrap>view:last-child{
+  font-size: 60rpx;
+  padding: 20rpx 0 10rpx;
+}
+.textWrap{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+.textWrap>view{
+  padding: 0 10rpx 20rpx;
+}
+/* 通用功能 */
+.generalFunction::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 20rpx;
+  background-color: var(--BackGroundGray);
+}
+/* 开放能力btn伪装 */
+.openBtn{
+  position: relative;
+}
+.openBtn button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}

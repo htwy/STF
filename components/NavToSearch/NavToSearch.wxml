@@ -1,0 +1,6 @@
+<view class="search_input">
+  <navigator open-type="navigate" hover-class="none" url="/pages/search/search">
+    <view class="iconfont icon-sousuo"></view>
+    <text decode>&nbsp;搜索</text>
+  </navigator>
+</view>

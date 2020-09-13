@@ -1,0 +1,32 @@
+@import "./styles/iconfont.wxss";
+/* 在微信小程序中 不支持 通配符 '*' */
+page,view,text,swiper,swiper-item,image,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page{
+  /* 定义主题颜色 */
+  --themeColor:#1296db;
+  /* 灰色，用于tabbar等灰色字体 */
+  --GrayColor:#8a8a8a;
+  /* 背景灰色 */
+  --BackGroundGray:#F6F6F6;
+  /* hover灰色 */
+  --GrayHover:#ddd;
+  /* 绿色，用于正确样式，按钮 */
+  --GreenColor:#1AAD19;
+  /*
+   定义统一字体大小  假设设计稿 大小是 375px 
+   1px= 2rpx
+   14px = 28rpx
+    */
+    font-size: 28rpx;
+}
+image{
+  width: 100%;
+}
+/* 用于隐藏一些元素 */
+.hide{
+  display: none !important;
+}

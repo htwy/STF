@@ -1,0 +1,4 @@
+<view class="noContent">
+	<image mode="widthFix" src="/images/empty/nocontent.png"></image>
+	<view>暂无内容</view>
+</view>

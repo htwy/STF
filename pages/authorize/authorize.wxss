@@ -1,0 +1,50 @@
+/* pages/authorize/authorize.wxss */
+.searchBtn{
+  background-color: var(--themeColor);
+  padding: 0 30rpx;
+  color: #fff;
+  border-radius: 5rpx;
+  margin: 0;
+}
+.result{
+  padding: 20rpx 30rpx;
+  background-color: var(--BackGroundGray);
+}
+.scroll{
+  height: calc(100vh - 54px - 40rpx);
+}
+.userWrap{
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  border:1rpx solid var(--themeColor);
+  position: relative;
+}
+/* .uNo,.uName,.uClass,.uInstitute{
+ 
+} */
+.userWrap>view>view{
+  padding: 6rpx 0;
+  font-size: 30rpx;
+}
+.userWrap>view>view>text:first-child{
+  font-weight: bold;
+  padding-right: 30rpx;
+  color: var(--themeColor);
+}
+.identity{
+  position: absolute;
+  top:30rpx;
+  right: 30rpx;
+}
+.authorizeBtn{
+  margin-top: 20rpx;
+  background-color: var(--themeColor);
+  color: #fff;
+}
+.host{
+  color: var(--themeColor);
+}
+.delete{
+  background-color: red;
+}

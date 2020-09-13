@@ -1,0 +1,54 @@
+// filter 
+//1. 不支持箭头函数，2不支持const , 3 导出时不能省略对象值
+// 4 不支持new Date
+// 5. 不支持 ` `
+
+// 将时间戳转为时间  2020-12-67  12:34
+var formatDate = function(timeStamp){
+    var time =  getDate(parseInt(timeStamp));
+    var y = time.getFullYear();
+    var m = time.getMonth()+1;
+    var d = time.getDate();
+    var h = time.getHours();
+    var min = time.getMinutes();
+    if(m<10){
+        m = '0'+m
+    }
+    if(d<10){
+        d = '0'+d
+    }
+    if(h<10){
+        h = '0'+h
+    }
+    if(min<10){
+        min = '0'+min
+    }
+
+    return y+'-'+m+'-'+d+'&nbsp;&nbsp;&nbsp;'+h+':'+min
+}
+// 返回颜色
+var getColor = function(value){
+    // if(value == "德育分"){
+    //     return '#1296db'
+    // }
+    switch(value){
+        case '德育分':
+            return '#0000CD'
+        case '智育分':
+            return '#8A2BE2'
+        case '劳育分':
+            return '#DAA520'   
+        case '体育分':
+            return '#FF8C00' 
+        case '美育分':
+            return '#FF1493'
+        case '志愿时长':
+            return '#FF6347'
+        default:
+            return '#0000FF'
+    }
+}
+module.exports = {
+    formatDate:formatDate,
+    getColor:getColor,
+}

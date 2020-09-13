@@ -1,0 +1,56 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
+<view class="box">
+<!-- 学分汇总 -->
+<view class="sum" style="color:{{filter.getColor(type)}};">
+  <text>{{type}}</text>
+  <text>{{type=="志愿时长"?score+"小时":score+"分"}}</text>
+</view>
+
+<block wx:if="{{activityArr.length>0}}">
+	<view class="activityBox">
+		<view class="activity" wx:for="{{activityArr}}" wx:key="index" style="color:{{filter.getColor(item.activityObj.AcScoreType)}};">
+			<!-- 学分种类 -->
+			<view class="emphasize {{item.activityObj.AcScoreType?'':'hide'}}">
+				<view class="title">{{item.activityObj.AcScoreType}}</view>
+				<view class="content">{{item.activityObj.AcScoreType=='志愿时长'?item.activityObj.AcScoreNum+'小时':item.activityObj.AcScoreNum+'分'}}</view>
+			</view>
+			<!-- 活动名称 -->
+			<view class="emphasize">{{item.activityObj.AcName}}</view>
+			<!-- 活动对象 -->
+			<view>
+				<view>
+					<text class="iconfont icon-duixiang"></text>
+					<text class="title">活动对象</text>
+				</view>
+				<view class="content">{{item.activityObj.AcObj}}</view>
+			</view>
+
+			<view>
+				<view>
+					<text class="iconfont icon-jieshushijian"></text>
+					<text class="title">开始时间</text>
+				</view>
+				<view class="content"><text decode>{{filter.formatDate(item.activityObj.AcStartTime)}}</text></view>
+			</view>
+			<view>
+				<view>
+					<text class="iconfont icon-kaishishijian"></text>
+					<text class="title">结束时间</text>
+				</view>
+				<view class="content"><text decode>{{filter.formatDate(item.activityObj.AcEndTime)}}</text></view>
+			</view>
+			<view>
+				<view>
+					<text class="iconfont icon-weizhi"></text>
+					<text class="title">活动地点</text>
+				</view>
+
+				<view class="content">{{item.activityObj.clockInLocation.location?item.activityObj.clockInLocation.location+item.activityObj.AcAddress:item.activityObj.AcAddress}}</view>
+			</view>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<NoContent></NoContent>
+</block>
+</view>

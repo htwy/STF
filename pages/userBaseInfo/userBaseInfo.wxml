@@ -1,0 +1,9 @@
+<van-cell-group>
+	<van-field model:value="{{ uName }}" label="姓名" placeholder="请填写真实姓名" clearable border required />
+	<van-field model:value="{{ uNo }}" label="学号" placeholder="请填写学号" clearable border required />
+	<van-field model:value="{{ uInstitute }}" label="学院" placeholder="如：信艺学院" clearable border required />
+	<van-field model:value="{{ uClass }}" label="班级" placeholder="如：软工171" clearable border required />
+</van-cell-group>
+<view class="submitBtn">
+	<button type="primary" size="mini" plain bindtap="submit">提 交</button>
+</view>

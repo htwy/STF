@@ -1,0 +1,64 @@
+page{
+  height: 100%;
+  background-color: var(--BackGroundGray);
+}
+/* 外部容器 */
+.container::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 20rpx;
+}
+/* 滑动组件 */
+.scroll{
+  height: calc(100vh - 20rpx - 30px);
+}
+/* 去除滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+/* 活动盒子 */
+.activityBox {
+  padding: 20rpx 0rpx;
+}
+
+.activity {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  border-left: 18rpx solid;
+}
+
+.activity:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+
+.activity>view {
+  display: flex;
+  align-items: center;
+}
+
+.activity>view>view:first-child {
+  display: flex;
+  align-items: center;
+  /* padding-right:20rpx ; */
+  margin-right: 20rpx;
+}
+.content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.title{
+  min-width: 112rpx;
+}
+.activity>view+view {
+  margin-top: 10rpx;
+}
+
+
+.emphasize {
+  font-size: 32rpx;
+  font-weight: bold;
+}

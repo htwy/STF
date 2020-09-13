@@ -1,0 +1,18 @@
+<!-- 用户功能 -->
+<view class="userFunction">
+  <view class="funStyle" bindtap="scanCode">
+    <text class="iconfont icon-saoma"></text>
+    <text>扫码</text>
+  </view>
+  <view class="funStyle {{identity=='ordinary'?'hide':''}}" bind:tap="NavtoPub">
+    <text class="iconfont icon-fabu-"></text>
+    <text>发布</text>
+  </view>
+  <view class="funStyle {{identity=='ordinary'?'hide':''}}" bindtap="navToAdminActivity">
+    <text class="iconfont icon-wsdzb_zzgzt_dwgl_zzgl_group"></text>
+    <text>管理</text>
+  </view>
+  <view class="funStyle {{identity=='administrator'?'':'hide'}}" bindtap="navToAuthorize">
+    <text class="iconfont icon-guanli iconStyle"></text>
+  </view>
+</view>

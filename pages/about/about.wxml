@@ -1,0 +1,7 @@
+<view class="logo_warp">
+	<image mode="aspectFit" src="/images/logo/logo1.png"></image>
+</view>
+<view class="introduce">
+	<view class="title">素拓百分百</view>
+	<view class="content">"素拓百分百"微信小程序由水院学子搭建，为水院提供线上活动报名，自动统计学生素拓分，致力于减轻素拓分统计人员的负担。</view>
+</view>

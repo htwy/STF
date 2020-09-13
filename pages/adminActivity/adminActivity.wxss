@@ -1,0 +1,105 @@
+page{
+  height: 100%;
+  background-color: var(--BackGroundGray);
+}
+/* 外部容器 */
+.container::before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 20rpx;
+}
+/* 滑动组件 */
+.scroll{
+  height: calc(100vh - 20rpx - 30px);
+}
+/* 去除滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+/* 活动盒子 */
+.activityBox {
+  padding: 20rpx 0rpx;
+}
+
+.activity {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  border-left: 18rpx solid;
+  margin-top:20rpx;
+}
+
+.activity:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+
+.activity>view {
+  display: flex;
+  align-items: center;
+}
+
+.activity>view>view:first-child {
+  display: flex;
+  align-items: center;
+  /* padding-right:20rpx ; */
+  margin-right: 20rpx;
+}
+.emphasize {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+/* 生成签到码和导出名单 加内容的wrap*/
+.functionWrap{
+  padding-bottom:40rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 1rpx dashed var(--themeColor);
+}
+/* 签到码和导出名单盒子 */
+.functionWrap>view:first-child{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 打卡码 和 名单的样式 */
+.functionWrap>view:first-child>view{
+  padding: 15rpx;
+  border:1rpx solid;
+  width: 44vw;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 图标样式 */
+.iconStyle{
+  font-size: 50rpx;
+}
+
+/* 生成的二维码 盒子 */
+.generateContent>view:first-child{
+  display: flex;
+  justify-content: space-between;
+}
+/* 二维码 盒子 view */
+.generateContent>view:first-child>view{
+  width: 44vw;
+  text-align: center;
+  border:1rpx solid;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+/* 二维码标题 */
+.QRTitle{
+  padding: 20rpx 0 10rpx;
+}
+/* 名单链接 */
+.excelLink{
+  margin-top: 20rpx;
+  border:1rpx solid;
+  padding: 20rpx;
+  text-align: center;
+  border-radius: 10rpx;
+}

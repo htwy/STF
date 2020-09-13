@@ -1,0 +1,30 @@
+<view class="guide_wrap">
+	<view>
+		<view class="title">1. 如何报名活动</view>
+		<view class="content">报名活动前需登录并完善个人资料，否则无法进行报名。</view>
+	</view>
+	<view>
+		<view class="title">2. 如何签到、签退活动</view>
+		<view class="content">在首页右下角点击"扫码"，在活动指定位置和指定时间内扫码活动举办方提供的签到、签退码，即可进行活动签到、签退。注意：需要允许小程序获取您的位置权限。</view>
+	</view>
+	<view>
+		<view class="title">3. 如何成为"活动发布者"</view>
+		<view class="content">您需要先登录并完善个人信息，然后通过"我的-联系客服"，发送<text style="color:var(--themeColor)" bindtap="getText">"我要成为活动发布者"</text>，待客服回应后，提交相关证明材料，等待审核通过后即可成为活动发布者，您将有权限发布活动。</view>
+	</view>
+	<view>
+		<view class="title">4. 如何发布活动</view>
+		<view class="content">在首页右下角点击"发布"，填写活动信息后，可先预览活动，确认无误后点击发布。<text style="color:red">注意：活动一旦发布，不可修改，不可删除。</text></view>
+	</view>
+	<view>
+		<view class="title">5. 如何生成签到、签退码</view>
+		<view class="content">在首页右下角点击"管理"，选择您发布过的活动，点击"生成打卡码"，授权即可保存到相册中。</view>
+	</view>
+	<view>
+		<view class="title">6. 如何导出活动名单</view>
+		<view class="content">在首页右下角点击"管理"，选择您发布过的活动，点击"导出名单"，复制链接到浏览器中即可下载。</view>
+	</view>
+	<view>
+		<view class="title">7. 其他问题</view>
+		<view class="content">如果您还有其他问题，可以通过"我的-联系客服"，向客服咨询您的问题。</view>
+	</view>
+</view>

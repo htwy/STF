@@ -1,0 +1,10 @@
+.submitBtn {
+  text-align: center;
+}
+button {
+  width: 40vw;
+  margin-top: 50rpx;
+  color: var(--themeColor) !important;
+  border-color: currentColor !important;
+  font-size: 30rpx !important;
+}

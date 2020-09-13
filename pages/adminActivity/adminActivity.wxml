@@ -1,0 +1,63 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
+<view class="container">
+	<van-tabs type="card" swipeable animated color="#1296db">
+		<block wx:for="{{tabs}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+			<van-tab title="{{item1}}">
+				<scroll-view class="scroll" scroll-y>
+					<block wx:if="{{categoryArr[index1].length>0}}">
+						<view wx:for="{{categoryArr[index1]}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2" style="color:{{filter.getColor(item2.activityObj.AcScoreType)}};">
+							<!-- 活动 -->
+							<view class="activity" bindtap="navToDetail" data-type="{{item1}}" data-index="{{index2}}">
+								<!-- 学分种类 -->
+								<view class="emphasize {{item2.activityObj.AcScoreType?'':'hide'}}">
+									<view class="title">{{item2.activityObj.AcScoreType}}</view>
+									<view class="content">{{item2.activityObj.AcScoreType=='志愿时长'?item2.activityObj.AcScoreNum+'小时':item2.activityObj.AcScoreNum+'分'}}</view>
+								</view>
+								<!-- 活动名称 -->
+								<view class="emphasize">{{"活动："+item2.activityObj.AcName}}</view>
+								<!-- 活动地点 -->
+								<view class="emphasize">{{"地点："+item2.activityObj.AcAddress}}</view>
+							</view>
+							
+							<!-- 签到码和导出名单 盒子-->
+							<view class="functionWrap">
+								<!-- 签到码和导出名单 -->
+								<view>
+									<!-- 打卡码 -->
+									<view bindtap="getCode" data-index="{{index2}}" data-id="{{item2._id}}" data-type="{{item1}}" data-isgetcode="{{item2.signInQR?'no':'yes'}}" data-isneed="{{item2.activityObj.AcAddress=='线上'?'no':'yes'}}" data-AcName="{{item2.activityObj.AcName}}" data-startTime="{{item2.activityObj.AcStartTime}}" data-endTime="{{item2.activityObj.AcEndTime}}">
+										<text>生成打卡码</text>
+										<text class="iconfont icon-erweima1 iconStyle"></text>
+									</view>
+									<!-- 导出名单 -->
+									<view bindtap="getExcel" data-index="{{index2}}" data-id="{{item2._id}}" data-type="{{item1}}" data-isgetexcel="{{item2.activityObj.AcAddress!=='线上'?'yes':item2.activityObj.AcScoreNum?'yes':'no'}}" data-scoreType="{{item2.activityObj.AcScoreType}}" data-scoreNum="{{item2.activityObj.AcScoreNum}}" data-AcName="{{item2.activityObj.AcName}}">
+										<text>导出名单</text>
+										<text class="iconfont icon-daochuExcel iconStyle"></text>
+									</view>
+								</view>
+								<!-- 内容 -->
+								<view class="generateContent">
+									<!--二维码点击保存 -->
+									<view class="{{item2.signInQR?'':'hide'}}">
+										<view data-index="{{index2}}" data-state="{{item1}}" data-saveType="signInQR" bindtap="saveQR">
+											<view class="QRTitle">签到码(保存到相册)</view>
+										</view>
+										<view data-index="{{index2}}" data-state="{{item1}}" data-saveType="signOutQR" bindtap="saveQR">
+											<view class="QRTitle">签退码(保存到相册)</view>
+										</view>
+									</view>
+									<!-- 名单链接 -->
+									<view class="excelLink {{item2.excelLink?'':'hide'}}" bindtap="setClipExcelLink" data-fileid="{{item2.excelLink}}">
+										复制链接后到浏览器中粘贴下载
+									</view>
+								</view>
+							</view>
+						</view>		
+					</block>
+					<block wx:else>
+						<NoContent></NoContent>
+					</block>
+				</scroll-view>
+			</van-tab>
+		</block>
+	</van-tabs>
+</view>

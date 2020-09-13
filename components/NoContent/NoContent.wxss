@@ -1,0 +1,7 @@
+.noContent{
+  width: 20vw;
+  margin: 0 auto;
+  padding-top: 200rpx;
+  text-align: center;
+  color: var(--themeColor);
+}

@@ -1,0 +1,79 @@
+page {
+  background-color: var(--BackGroundGray);
+  /* height: 100%; */
+}
+
+/* 滚动组件 */
+.scroll {
+  height: calc(100vh - 44px);
+}
+
+/* 导航栏 总体样式 */
+/* .navStyle{
+  color: var(--themeColor) !important;
+} */
+/* nav中单个标签样式 */
+.tabsStyle {
+  flex-basis: 18% !important;
+  padding: 0 !important;
+}
+
+/* 导航栏 标签 激活样式 */
+.tabsActive {
+  color: var(--themeColor) !important;
+}
+
+/* tab 内容样式*/
+/* .tabCustomStyle{
+} */
+
+/* 活动盒子 */
+.activityBox {
+  padding: 20rpx 30rpx;
+}
+
+.activity {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  border-left: 18rpx solid;
+}
+
+.activity:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+
+.activity>view {
+  display: flex;
+  align-items: center;
+}
+
+.activity>view>view:first-child {
+  display: flex;
+  align-items: center;
+  /* padding-right:20rpx ; */
+  margin-right: 20rpx;
+}
+.content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.title:not(:first-child){
+  min-width: 112rpx;
+}
+.activity>view+view {
+  margin-top: 10rpx;
+}
+
+
+.emphasize {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 去除滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

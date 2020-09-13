@@ -1,0 +1,66 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
+<!-- 用户功能组件 -->
+<UserFunction identity="{{identity}}"></UserFunction>
+<!-- tab组件 -->
+<van-tabs swipeable animated color="#1296db" custom-class="tabCustomStyle" nav-class="navStyle" tab-class="tabsStyle" tab-active-class="tabsActive">
+	<block wx:for="{{tabs}}" wx:for-item="item1" wx:for-index="index1" wx:key="index1">
+		<van-tab title="{{item1}}">
+			<scroll-view class="scroll" scroll-y>
+				<!-- 活动 -->
+				<block wx:if="{{categoryArr[index1].length>0}}">
+					<view class="activityBox">
+						<view class="activity" wx:for="{{categoryArr[index1]}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2" style="color:{{filter.getColor(item2.activityObj.AcScoreType)}};" bindtap="navToDetail" data-AcId="{{item2._id}}">
+							<!-- 学分种类 -->
+							<view class="emphasize {{item2.activityObj.AcScoreType?'':'hide'}}">
+								<view class="title">{{item2.activityObj.AcScoreType}}</view>
+								<view class="content">{{item2.activityObj.AcScoreType=='志愿时长'?item2.activityObj.AcScoreNum+'小时':item2.activityObj.AcScoreNum+'分'}}</view>
+							</view>
+							<!-- 活动名称 -->
+							<view class="emphasize">{{item2.activityObj.AcName}}</view>
+							<!-- 活动对象 -->
+							<view>
+								<view>
+									<text class="iconfont icon-duixiang"></text>
+									<text class="title">活动对象</text>
+								</view>
+								<view class="content">{{item2.activityObj.AcObj}}</view>
+							</view>
+							<view>
+								<view>
+									<text class="iconfont icon-xianzhixiaofeiling"></text>
+									<text class="title">剩余名额</text>
+								</view>
+								<view class="content">{{item2.activityObj.AcNum=='infinite'?'人数不限':item2.rest+'/'+item2.activityObj.AcNum+'人'}}</view>
+							</view>
+							<view>
+								<view>
+									<text class="iconfont icon-jieshushijian"></text>
+									<text class="title">开始时间</text>
+								</view>
+								<view class="content"><text decode>{{filter.formatDate(item2.activityObj.AcStartTime)}}</text></view>
+							</view>
+							<view>
+								<view>
+									<text class="iconfont icon-kaishishijian"></text>
+									<text class="title">结束时间</text>
+								</view>
+								<view class="content"><text decode>{{filter.formatDate(item2.activityObj.AcEndTime)}}</text></view>
+							</view>
+							<view>
+								<view>
+									<text class="iconfont icon-weizhi"></text>
+									<text class="title">活动地点</text>
+								</view>
+								
+								<view class="content">{{item2.activityObj.clockInLocation.location?item2.activityObj.clockInLocation.location+item2.activityObj.AcAddress:item2.activityObj.AcAddress}}</view>
+							</view>
+						</view>
+					</view>
+				</block>
+				<block wx:else>
+					<NoContent></NoContent>
+				</block>
+			</scroll-view>
+		</van-tab>
+	</block>
+</van-tabs>

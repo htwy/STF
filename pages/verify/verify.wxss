@@ -1,0 +1,38 @@
+page{
+  background-color: var(--BackGroundGray);
+}
+.box{
+  padding: 30rpx;
+}
+.box>view{
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.box>view>text:first-child,.userInfo{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--themeColor);
+  padding-right: 30rpx;
+  min-width: 160rpx;
+}
+.userInfo{
+  display: block !important;
+}
+.userInfo>view{
+  margin-bottom: 20rpx;
+}
+.btn{
+  justify-content: center;
+  background-color: var(--themeColor) !important;
+  color: #fff;
+  font-weight: bold;
+  font-size: 32rpx;
+  background-image: linear-gradient(to right, #3CC4C4 , #1296db);
+}
+.labelStyle{
+  color: var(--themeColor) !important;
+}

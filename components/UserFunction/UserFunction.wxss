@@ -1,0 +1,37 @@
+@import "../../styles/iconfont.wxss";
+/* 用户功能 */
+.userFunction{
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+  display: flex;
+  flex-direction:column;
+  z-index: 1000;
+}
+/* 功能样式 */
+.funStyle{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  background: var(--themeColor);
+  /* text-align: center;
+  line-height: 100rpx; */
+  color: white;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.funStyle>text:first-child{
+  font-size: 50rpx;
+}
+.funStyle>text:last-child{
+  font-size: 24rpx;
+}
+.iconStyle{
+  font-size: 60rpx !important;
+}
+.hide{
+  display: none;
+}

@@ -1,0 +1,65 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/check/check",
+    "pages/user/user",
+    "pages/userBaseInfo/userBaseInfo",
+    "pages/publish/publish",
+    "pages/detail/detail",
+    "pages/adminActivity/adminActivity",
+    "pages/verify/verify",
+    "pages/authorize/authorize",
+    "pages/about/about",
+    "pages/guide/guide",
+    "pages/acFinished/acFinished"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "backgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "素拓百分百",
+    "navigationBarTextStyle":"white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#1296db",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "images/tabbar/home.png",
+      "selectedIconPath": "images/tabbar/home_selected.png"
+    },
+    {
+      "pagePath": "pages/check/check",
+      "text": "查看",
+      "iconPath": "images/tabbar/check.png",
+      "selectedIconPath": "images/tabbar/check_selected.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/tabbar/user.png",
+      "selectedIconPath": "images/tabbar/user_selected.png"
+    }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位效果展示"
+    }
+  },
+  "usingComponents": {
+    "van-cell": "vant-weapp/cell/index",
+    "van-cell-group": "vant-weapp/cell-group/index",
+    "van-button": "vant-weapp/button/index",
+    "van-tab": "vant-weapp/tab/index",
+    "van-tabs": "vant-weapp/tabs/index",
+    "van-field": "vant-weapp/field/index",
+    "van-search": "vant-weapp/search/index",
+    "van-nav-bar": "vant-weapp/nav-bar/index",
+
+    "UserFunction":"../../components/UserFunction/UserFunction",
+    "NoContent":"../../components/NoContent/NoContent"
+  }
+}

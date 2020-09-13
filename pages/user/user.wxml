@@ -1,0 +1,67 @@
+
+<!-- 头像等个人信息 -->
+<view class="publicInformation">
+	<view class="avatar">
+		<image src="{{userPublicInfo.avatarUrl?userPublicInfo.avatarUrl:'/images/logo/logo1.png'}}"></image>
+	</view>
+	<view wx:if="{{userPublicInfo.nickName}}">
+		<view class="tagParent">
+			<text>{{userPublicInfo.nickName}}</text>
+		</view>
+		<view class="editResume" bindtap="navToUserBaseInfo">
+			<text class="iconfont icon-chuangzuo"></text>
+			<text decode>&nbsp;编辑资料</text>
+		</view>
+	</view>
+	<button class="loginBtn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo" wx:else>授权登录</button>
+</view>
+<!-- 学分汇总 -->
+<view class="ScoreWrap">
+	<view bindtap="navToAcFinished" data-type="德育分" data-score="{{scoreList.dScore?scoreList.dScore:0}}">
+		<view>{{scoreList.dScore?scoreList.dScore:0}}</view>
+		<view class="score">德育分</view>
+	</view>
+	<view bindtap="navToAcFinished" data-type="智育分" data-score="{{scoreList.zScore?scoreList.zScore:0}}">
+		<view>{{scoreList.zScore?scoreList.zScore:0}}</view>
+		<view class="score">智育分</view>
+	</view>
+	<view bindtap="navToAcFinished" data-type="劳育分" data-score="{{scoreList.lScore?scoreList.lScore:0}}">
+		<view>{{scoreList.lScore?scoreList.lScore:0}}</view>
+		<view class="score">劳育分</view>
+	</view>
+	<view bindtap="navToAcFinished" data-type="体育分" data-score="{{scoreList.tScore?scoreList.tScore:0}}">
+		<view>{{scoreList.tScore?scoreList.tScore:0}}</view>
+		<view class="score">体育分</view>
+	</view>
+	<view bindtap="navToAcFinished" data-type="美育分" data-score="{{scoreList.mScore?scoreList.mScore:0}}">
+		<view>{{scoreList.mScore?scoreList.mScore:0}}</view>
+		<view class="score">美育分</view>
+	</view>
+</view>
+
+<!-- 志愿时长 -->
+<view class="voluteer" bindtap="navToAcFinished" data-type="志愿时长" data-score="{{scoreList.vScore?scoreList.vScore:0}}">
+  <view class="iconWrap">
+    <view style="width:100%;height:20rpx;background:var(--BackGroundGray)"></view>
+    <view class="iconfont icon-ziyuan"></view>
+  </view>
+  <view class="textWrap">
+    <view>志愿时长</view>
+    <view>{{scoreList.vScore?scoreList.vScore+'小时':0+'小时'}}</view>
+  </view>
+</view>
+
+<!-- 通用功能 -->
+<view class="generalFunction">
+	<van-cell title="关于我们" icon="info-o" is-link custom-class="cell" bind:click="navToAbout" />
+	<van-cell title="使用指南" icon="question-o" is-link custom-class="cell" bind:click="navToGuide" />
+	<view class="openBtn">
+		<van-cell title="联系客服" icon="service-o" is-link custom-class="cell" />
+		<button open-type="contact"></button>
+	</view>
+	<!-- <van-cell title="清理缓存" icon="delete" is-link custom-class="cell" bind:click="clearStorage" /> -->
+	<view class="openBtn">
+		<van-cell title="分享" icon="share" is-link custom-class="cell" />
+		<button open-type="share"></button>
+	</view>
+</view>

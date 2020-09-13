@@ -1,0 +1,31 @@
+<!-- 搜索框 -->
+<van-search value="{{ value }}" placeholder="请输入用户学号" use-action-slot bind:change="onChange" bind:search="onSearch">
+	<view slot="action" bind:tap="onClick" class="searchBtn">搜索</view>
+</van-search>
+<!-- 展示用户 -->
+<view class="result">
+	<scroll-view scroll-y class="scroll">
+		<view class="userWrap" wx:for="{{userObjArr}}" wx:key="index">
+			<view>
+				<view class="uNo">
+					<text>学号</text>
+					<text>{{item.userBaseInfo.uNo}}</text>
+				</view>
+				<view class="uName">
+					<text>姓名</text>
+					<text>{{item.userBaseInfo.uName}}</text>
+				</view>
+				<view class="uClass">
+					<text>班级</text>
+					<text>{{item.userBaseInfo.uClass}}</text>
+				</view>
+				<view class="uInstitute">
+					<text>学院</text>
+					<text>{{item.userBaseInfo.uInstitute}}</text>
+				</view>
+				<view class="identity {{item.identity=='ordinary'?'':'host'}}">{{item.identity=="ordinary"?"普通用户":item.identity=="host"?"活动发布者":"超级管理员"}}</view>
+			</view>
+			<button class="authorizeBtn {{item.identity=='ordinary'?'':item.identity=='host'?'delete':'hide'}}" bindtap="manageAuthorize" data-openid="{{item._openid}}" data-identity="{{item.identity}}" data-index="{{index}}">{{item.identity=="ordinary"?"授权发布活动":"撤销授权"}}</button>
+		</view>
+	</scroll-view>
+</view>

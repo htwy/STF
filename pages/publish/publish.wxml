@@ -1,0 +1,88 @@
+<view class="container">
+	<scroll-view class="scroll" scroll-y>
+		<van-cell-group>
+			<view class="ActivityTypeWrap">
+				<view class="ActivityTypeTitle">活动类型</view>
+				<view class="ActivityTypeContent">
+					<text>{{activityTypeSwitchChecked?'线下活动':'线上活动'}}</text>
+					<switch checked="{{activityTypeSwitchChecked}}" color="#1296db" bindchange="activityTypeChange"></switch>
+				</view>
+			</view>
+
+			<van-field model:value="{{ AcName }}" label="活动名称" placeholder="请输入活动名称" clearable border />
+			<van-field model:value="{{ AcHost }}" label="主办单位" placeholder="请输入主办单位" clearable border />
+			<van-field model:value="{{ AcViceHost }}" label="承办单位" placeholder="请输入承办单位(选填)" clearable border />
+			<van-field model:value="{{ AcObj }}" label="活动对象" placeholder="请输入活动对象" clearable border />
+			<van-field model:value="{{ AcNum }}" label="活动人数" placeholder="请输入活动人数(选填)" border type="number" />
+			<!-- 选择时间 -->
+			<view class="timeStyle">
+				<view class="timeTitle">开始时间</view>
+				<view class="timeNumber">
+					<picker mode="date" header-text="开始时间  年-月-日" value="{{startDate}}" bindchange="chooseStartDate">
+						<view>{{startDate}}</view>
+					</picker>
+					<picker mode="time" header-text="开始时间  时-分" value="{{startTime}}" bindchange="chooseStartTime">
+						<view>{{startTime}}</view>
+					</picker>
+				</view>
+
+			</view>
+			<view class="timeStyle">
+				<view class="timeTitle">结束时间</view>
+				<view class="timeNumber">
+					<picker mode="date" header-text="结束时间  年-月-日" value="{{endDate}}" bindchange="chooseEndDate" start="{{endDateStart}}">
+						<view>{{endDate}}</view>
+					</picker>
+					<picker mode="time" header-text="结束时间  时-分" value="{{endTime}}" bindchange="chooseEndTime" start="{{endTimeStart}}">
+						<view>{{endTime}}</view>
+					</picker>
+				</view>
+			</view>
+
+			<!-- 选择打卡位置 -->
+			<view class="ChooseLocation {{activityTypeSwitchChecked?'':'hide'}}" bindtap="chooseLocation">
+				<view class="locationTitle">打卡地点</view>
+				<view>
+					<text class="iconfont icon-dingwei1 iconStyle"></text>
+					<text class="clockInLocation {{clockInLocation.location?'':'GaryColor'}}">{{clockInLocation.location?clockInLocation.location:'请选择打卡地点'}}</text>
+				</view>
+			</view>
+			<!-- 活动地点 -->
+			<van-field model:value="{{ AcAddress }}" label="活动地点" placeholder="请输入具体活动地点" clearable border disabled="{{!activityTypeSwitchChecked}}" />
+			<!-- 是否设置学分 -->
+			<view class="switchBtnWrap">
+				<view class="switchTitle">是否设置学分</view>
+				<switch checked="{{isScoreVisible}}" bindchange="ScoreSwitchChange" color="#1296db" />
+			</view>
+			<view class="{{isScoreVisible?'':'hide'}}">
+				<!-- 学分种类 -->
+				<picker header-text="学分种类" range="{{scoreTypeArray}}" value="{{scoreIndex==-1?0:scoreIndex}}" bindchange="chooseScoreType">
+					<view class="scoreTypeWrap">
+						<view class="scoreTypeTitle">学分种类</view>
+						<view class="scoreType">
+
+							<view class="{{scoreIndex==-1?'GaryColor':''}}">{{scoreIndex==-1?'请选择学分种类':scoreTypeArray[scoreIndex]}}</view>
+
+						</view>
+					</view>
+				</picker>
+				<!-- 学分分值 -->
+				<van-field model:value="{{ score }}" label="分值" placeholder="请输入学分分值or志愿时长" type="digit" />
+			</view>
+
+			<!-- 活动详情 -->
+			<view class="detailWrap">
+				<view class="detailTitle">活动详情</view>
+			</view>
+			<scroll-view scroll-y class="srollAndtextArea">
+				<textarea maxlength="-1" placeholder="请输入活动详情" value="{{detail}}" bindinput="getTextAreaValue"></textarea>
+			</scroll-view>
+		</van-cell-group>
+	</scroll-view>
+</view>
+
+<!-- 确认发布按钮 -->
+<view class="pubBtnWrap">
+	<button bindtap="preview" class="previewBtn">预览</button>
+	<button bindtap="Publish" class="pubBtn">确认发布</button>
+</view>

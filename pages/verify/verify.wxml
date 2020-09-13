@@ -1,0 +1,30 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
+<view class="box {{AcName?'':'hide'}}">
+	<view>
+		<text>当前活动</text>
+		<text>{{AcName}}</text>
+	</view>
+	<view>
+		<text>签到时间</text>
+		<text decode>{{filter.formatDate(AcStartTime)+'之前'}}</text>
+	</view>
+	<view>
+		<text>签退时间</text>
+		<text decode>{{filter.formatDate(AcEndTime)+"之前"}}</text>
+	</view>
+  <view bindtap="navToLocation">
+		<text>打卡地点</text>
+		<text>{{clockInLocation.location+"(点击导航)"}}</text>
+	</view>
+	<view class="userInfo">
+		<view>打卡人信息</view>
+		<van-cell-group>
+			<van-field value="{{ userBaseInfo.uName }}" label="姓名" label-class="labelStyle" border readonly required/>
+			<van-field value="{{ userBaseInfo.uNo }}" label="学号"  label-class="labelStyle" border readonly required/>
+			<van-field value="{{ userBaseInfo.uInstitute }}" label="学院"  label-class="labelStyle" border readonly required/>
+			<van-field value="{{ userBaseInfo.uClass }}" label="班级"  label-class="labelStyle" readonly required/>
+		</van-cell-group>
+	</view>
+	<!-- 签到、签退Btn -->
+	<button class="btn" bindtap="clockIn" disabled="{{isBtnDisabled}}">{{btnValue}}</button>
+</view>

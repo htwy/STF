@@ -1,0 +1,47 @@
+/* 盒子 */
+page{
+  background-color: var(--BackGroundGray);
+}
+.box{
+  padding: 20rpx 30rpx;
+}
+.tint{
+  display: flex;
+  color: red;
+  align-items: start !important;
+}
+.box>view:not(:first-child){
+  display: flex;
+  background-color: #fff;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  align-items: center;
+}
+.box>view:last-child{
+  display: block;
+}
+textarea{
+  padding:20rpx 0;
+}
+.box>view>view:first-child{
+  flex:2;
+  display: flex;
+  align-items: center;
+}
+.box>view>view:last-child{
+  flex:5;
+}
+.box>view>view:not(.content)>text:first-child{
+  font-size: 40rpx;
+  margin-right: 5rpx;
+}
+.participate{
+  padding: 30rpx 30rpx 80rpx;
+}
+.participateBtn{
+  background-color: var(--themeColor) ;
+  color: white;
+  font-size: 32rpx;
+  padding:5rpx 0;
+}

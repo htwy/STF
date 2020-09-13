@@ -1,0 +1,96 @@
+<wxs src="../../filter/filter.wxs" module="filter" />
+<view class="box">
+    <!-- 提示 -->
+    <view>
+        <view class="tint">
+            <text class="iconfont icon-xiaolaba"></text>
+            <text>{{tipContent}}</text>
+        </view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-name"></text>
+            <text class="title">活动名称</text>
+        </view>
+        <view class="content">{{activityObj.AcName}}</view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-zhubanfang"></text>
+            <text class="title">主办单位</text>
+        </view>
+        <view class="content">{{activityObj.AcHost}}</view>
+    </view>
+    <view  class="{{activityObj.AcViceHost?'':'hide'}}">
+        <view>
+            <text class="iconfont icon-chengbanfang"></text>
+            <text class="title">承办单位</text>
+        </view>
+        <view class="content">{{activityObj.AcViceHost}}</view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-duixiang"></text>
+            <text class="title">活动对象</text>
+        </view>
+        <view class="content">{{activityObj.AcObj}}</view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-xianzhixiaofeiling"></text>
+            <text class="title">剩余名额</text>
+        </view>
+        <view class="content">{{activityObj.AcNum=='infinite'?'人数不限':activityObj.rest?activityObj.rest+'/'+activityObj.AcNum+'人':activityObj.AcNum+'/'+activityObj.AcNum+'人'}}</view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-jieshushijian"></text>
+            <text class="title">开始时间</text>
+        </view>
+        <view class="content">
+            <text decode>{{filter.formatDate(activityObj.AcStartTime)}}</text>
+        </view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-kaishishijian"></text>
+            <text class="title">结束时间</text>
+        </view>
+        <view class="content">
+            <text decode>{{filter.formatDate(activityObj.AcEndTime)}}</text>
+        </view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-weizhi"></text>
+            <text class="title">活动地点</text>
+        </view>
+        <view class="content">{{activityObj.clockInLocation.location?activityObj.clockInLocation.location+activityObj.AcAddress:activityObj.AcAddress}}</view>
+    </view>
+
+    <view class="{{activityObj.AcScoreType==''?'hide':''}}">
+        <view>
+            <text class="iconfont icon-point-rule"></text>
+            <text class="title">学分种类</text>
+        </view>
+        <view class="content">{{activityObj.AcScoreType}}</view>
+    </view>
+    <view class="{{activityObj.AcScoreType==''?'hide':''}}">
+        <view>
+            <text class="iconfont icon-jiangli iconStyle1"></text>
+            <text class="title">{{activityObj.AcScoreType=="志愿时长"?'志愿时长':'学分分值'}}</text>
+        </view>
+        <view class="content">{{activityObj.AcScoreType=="志愿时长"?activityObj.AcScoreNum+'小时':activityObj.AcScoreNum+'分'}}</view>
+    </view>
+    <view>
+        <view>
+            <text class="iconfont icon-xiangqing"></text>
+            <text class="title">活动详情</text>
+        </view>
+        <textarea disabled auto-height value="{{activityObj.AcDetail}}"></textarea>
+    </view>
+</view>
+  <!-- 报名按钮 -->
+<view class="participate {{isVisibleBtn?'':'hide'}}">
+    <button bindtap="participate" class="participateBtn" disabled="{{participateBtnState=='马上报名'?false:true}}">{{participateBtnState}}</button>
+</view>
